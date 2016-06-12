@@ -71,3 +71,35 @@ The size in bytes of 'double*' (pointer to int) is 8
 
 Process finished with exit code 0
 ```
+### Data (3)
+
+Signed vs unsigned.
+
+Integers come in two varieties: signed (default) and unsigned. The same size variables (that is, char, short, int, long) is used for both signed and unsigned, so any bit pattern of 1-s and 0-s has a valid interpretation as a signed and unsigned integer. Since signed integers are the default, unsigned integers have to be qualified with the modifier keyword unsigned:
+
+```
+char c;
+short s;
+int i;
+long l;
+unsigned char uc;
+unsigned short us;
+unsigned int ui1;
+unsigned ui2;  // notice that 'unsigned' by itself defaults to 'unsigned int'
+unsigned long ul;
+```
+
+### Data (4)
+
+Integer arithmetic.
+
+Integer arithmetic is exact unless there is overflow or underflow, that is, the datum grows too large in absolute value for the corresponding memory unit to represent. Also, integer arithmetic discards fractional parts. For example, 5/3 == 1, not 1.(6).
+
+### Data (5)
+
+Real numbers.
+
+Reals are approximated. Their precision is no only finite, but can also vary between numbers. Reals are represented by floating point data types. There are several representations of real numbers: fixed-point, floating-point, binary-coded-decimal, etc. They differ in format, precision, and speed of operations. We focus on floating-point numbers.
+
+Their format (specifically the IEEE 754 single-precision) looks as follows:
+
