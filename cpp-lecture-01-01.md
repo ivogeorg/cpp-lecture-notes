@@ -104,3 +104,26 @@ Reals are approximated. Their precision is no only finite, but can also vary bet
 Their format (specifically the IEEE 754 single-precision) looks as follows:
 
 ![1180px-float_example svg](https://cloud.githubusercontent.com/assets/6043344/15994598/4287f2da-30be-11e6-86e7-6287c40260d5.png)
+
+Delving into the IEEE 754 format is beyond the scope of this study guide. The Wikipedia page shows many details that might be of interest to you. Also, you might be interested in seeing a bit-pattern-to-decimal converter which shows what decimals various bit patterns represent and, vice versa, what how various decimals are represented in binary.
+
+### Data (6)
+
+Real arithmetic and precision.
+
+**//TODO**
+
+### Build (1)
+
+What does the computer execute when we write a program? Through the build process, the program is transformed into computer-executable processor instructions and data for processing. When a program is "run", the computer loads the machine code and the data into memory and starts manipulating the data according to the code.
+
+**//TODO**
+
+### Software engineering (1)
+
+Version control.
+
+Git is a version control system (VCS). It stores the codebase for a project along with a record of every change made to the code as the project progresses. Git was originally written to support the distributed open-source development of the Linux Kernel. Other popular VCSs are CVS, Subversion (SVN), Visual SourceSafe, Perforce, Mercurial (hg).
+
+
+
