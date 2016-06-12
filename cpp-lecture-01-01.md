@@ -103,3 +103,4 @@ Reals are approximated. Their precision is no only finite, but can also vary bet
 
 Their format (specifically the IEEE 754 single-precision) looks as follows:
 
+![1180px-float_example svg](https://cloud.githubusercontent.com/assets/6043344/15994598/4287f2da-30be-11e6-86e7-6287c40260d5.png)
