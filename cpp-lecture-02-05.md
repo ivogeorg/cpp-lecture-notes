@@ -288,11 +288,11 @@ Any of the following 38 operators can be overloaded:
 
 Restrictions:
 
-  1. operator=, operator[], and operator-> have to be overloaded as members.
-  2. The operators :: (scope resolution), . (member access), .* (member access through pointer to member), and ?:(ternary conditional) cannot be overloaded
-  3. New operators such as **, <>, or &| cannot be created
-  4. The overloads of operators &&, ||, and , (comma) lose their special properties: short-circuit evaluation andsequencing (Links to an external site.).
-  5. The overload of operator -> must either return a raw pointer or return an object (by reference or by value), for which operator -> is in turn overloaded.
+  1. `operator=`, `operator[]`, and `operator->` have to be overloaded as members.
+  2. The operators `::` (scope resolution), `.` (member access), `.*` (member access through pointer to member), and `?:` (ternary conditional) cannot be overloaded
+  3. New operators such as `**`, `<>`, or `&|` cannot be created
+  4. The overloads of operators `&&`, `||`, and `,` (comma) lose their special properties: short-circuit evaluation and [sequencing](http://en.cppreference.com/w/cpp/language/eval_order).
+  5. The overload of operator `->` must either return a raw pointer or return an object (by reference or by value), for which operator `->` is in turn overloaded.
   6. It is not possible to change the precedence, grouping, or number of operands of operators.
 
 ### L-values and R-values
