@@ -1,5 +1,5 @@
 ## Overview
-Module 3 consists of 3 weeks and 6 lectures, from Tue, Sep 22, to Thur, Oct 8. It plunges into function and class templates. It looks at three Standard Library classes - vector, string, iostream - and shows how to make use of them in object-oriented programming. It reviews class design by using them as examples for operator overloading. It introduces exception handling.
+Module 3 consists of 3 weeks and 6 lectures. It plunges into function and class templates. It looks at three Standard Library classes - vector, string, iostream - and shows how to make use of them in object-oriented programming. It reviews class design by using them as examples for operator overloading. It introduces exception handling.
 
 ### Input & output (IO) (1)
 
