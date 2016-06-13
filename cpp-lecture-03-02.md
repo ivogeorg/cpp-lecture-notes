@@ -194,7 +194,7 @@ template <
 
 A template can have an unrestricted number of parameters, which form the parameter list. Each parameter can be of the following:
 
-  1. A non-type template parameter. (Remember, _type_ is approximately equivalent to _class_ in C++ parlance.) For example, the int dim in our second `Point` template.
+  1. A non-type template parameter. (Remember, _type_ is approximately equivalent to _class_ in C++ parlance.) For example, the `int dim` in our second `Point` template.
   2. A type template parameter. This is the prevalent case. For example, `typename T` above.
   3. A template template parameter. For example, `template <template <typename T> class S> class Cluster {};`.
 
