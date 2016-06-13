@@ -268,7 +268,7 @@ Like pointers:
 
 Unlike pointers:
 
-  * they have static/local semantics (e.g. ref.dataMember vs ptr->dataMember)
+  * they have static/local semantics (e.g. `ref.dataMember` vs `ptr->dataMember`)
   * they have to be initialized when created
   * cannot be reassigned (that is, they are implicitly const)
 
