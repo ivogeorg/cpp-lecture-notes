@@ -1,6 +1,6 @@
 ### Using const
 
-The keyword const can be used to declare constant variables __(LOL!)__, constant functions, constant arguments, and constant return values. It is left-associative (i.e. modifies what's on the left) except when it is leftmost and then it is right-associative (i.e. it modifies what's on the immediate right).
+The keyword const can be used to declare constant variables _(LOL!)_, constant functions, constant arguments, and constant return values. It is left-associative (i.e. modifies what's on the left) except when it is leftmost and then it is right-associative (i.e. it modifies what's on the immediate right).
 
 ```c++
 #include <iostream>
@@ -189,7 +189,7 @@ int main() {
 }
 ```
 
-The Point.h file follows. __NOTE: All class methods are implemented inline and not in a corresponding source file Point.cpp. This is for compactness. You should implement your methods in a source file.__
+The Point.h file follows. _NOTE: All class methods are implemented inline and not in a corresponding source file Point.cpp. This is for compactness. You should implement your methods in a source file._
 
 ```c++
 #include <iostream>
