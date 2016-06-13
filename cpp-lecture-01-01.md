@@ -105,7 +105,7 @@ Their format (specifically the [IEEE 754 single-precision](https://en.wikipedia.
 
 ![1180px-float_example svg](https://cloud.githubusercontent.com/assets/6043344/15994598/4287f2da-30be-11e6-86e7-6287c40260d5.png)
 
-Delving into the IEEE 754 format is beyond the scope of this study guide. The Wikipedia page shows many details that might be of interest to you. Also, you might be interested in seeing a bit-pattern-to-decimal converter which shows what decimals various bit patterns represent and, vice versa, what how various decimals are represented in binary.
+Delving into the IEEE 754 format is beyond the scope of this study guide. The [Wikipedia page](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) shows many details that might be of interest to you. Also, you might be interested in seeing a [bit-pattern-to-decimal converter](http://www.h-schmidt.net/FloatConverter/IEEE754.html) which shows what decimals various bit patterns represent and, vice versa, what how various decimals are represented in binary.
 
 ### Data (6)
 
