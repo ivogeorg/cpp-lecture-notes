@@ -1,3 +1,7 @@
+## Overview
+
+Module 2 consists of 3 weeks and 6 lectures, from Tue, Sep 1, to Thur, Sep 17. It plunges into class design and introduces dynamic allocation on the heap and working with pointers. It's major emphasis is operator overloading as an important component of class design, especially the interesting design issues that come up in the presence of dynamically allocated class members.
+
 ### Using const
 
 The keyword const can be used to declare constant variables _(LOL!)_, constant functions, constant arguments, and constant return values. It is left-associative (i.e. modifies what's on the left) except when it is leftmost and then it is right-associative (i.e. it modifies what's on the immediate right).
