@@ -143,4 +143,69 @@ The last example of dereferencing is also an example of pointer arithmetic. Poin
 
 Note that, since in C++ pointers have types (e.g. _pointer-to-int_, _pointer-to-Point_, etc.), pointer arithmetic works with the correct **step** in the array. This means that _*(pointer-to-int + 5)_ will jump over _5 * sizeof(int)_ memory positions to find the correct element, while _*(pointer-to-Point + 5)_ will jump over _5 * sizeof(Point)_ memory positions (which is at least 4 times farther for a _Point_ with _double x_ and _y_). Once again we see how types help with the correct interpretation of memory locations, which leads to correct operation with this memory.
 
+### Class design (2)
 
+[Cluster analysis](https://en.wikipedia.org/wiki/Cluster_analysis) (aka clustering) is a form of unsupervised machine learning. In short, if there is some large collection of (multi-dimensional) points, the problem is to divide them into groups in such a way that points in the same group are more similar to one another than points in different groups. These groups are called clusters. There are numerous algorithms for clustering points.
+
+The Cluster class is the first class that will have Point objects as members. Usually clustering is applied to problems with a large number of points, so the Cluster class has to be able to hold many Point objects. We cannot have a separate Point member to represent each point, so this calls for a class member of homogeneous aggregate data type. The simplest such type is the array.
+
+The clustering algorithms usually take many iterations to find a good final division of the problem's points into clusters, and usually there are different numbers of points in each cluster in different iterations. Points can be switched from one cluster to another until the final solution. So the Cluster class will need to perform a lot of operations of adding and deleting Point objects. If the array member is static, it will be allocated on the stack and all these operations will have to be done on the stack as well, making the array manipulation slow and wasteful of stack space. So this calls for a _dynamic array_.
+
+Let's look at our first iteration of the Cluster class:
+
+```c++
+class Cluster {
+    Point *cloud; // dynamic array of Point objects
+    int size; // need to know how many points there are
+
+    // other private members ...
+
+public:
+    Cluster(); // default constructor
+    void addPoint(const Point &);
+    void removePoint(const Point &);
+
+    // other methods ...
+};
+```
+
+We have a basic skeleton for the new Class. It has two private members: a dynamic array of `Point` objects, and an array size. The size is necessary for the following reasons:
+
+  1. When we iterate over the array, we need to know when to stop. If we don't stop at the last element and continue, we'll do what many hackers have exploited over the years, buffer overflow (Links to an external site.). 
+  2. If we need to add more points and the array is already full, we need to reallocate the array with a bigger size (and cleanup the old one) and add the points to the new one.
+
+We have an `addPoint` and a `removePoint` method to do the expected basic manipulations of our `Cluster` class. Notice that they take const `Point &` arguments. Why do we want that?  (to be continued in [Lecture 7](**//TODO**))
+
+### Pointers (3)
+
+Pointer variable class members require more class design to handle the class behavior properly. Just like two pointers can point to the same dynamically allocated object, two objects of a class that has pointer members can point to the same dynamically allocated objects through these pointers. In both cases, this is dangerous and unintended. Usually the intended behavior is that each pointer points to its own allocated object and the objects have the same internal state (all their members are the same, but the objects are distinct in memory).
+
+This is what is intended when an object is assigned to another object or is initialized with another object. In the first case the assignment operator is invoked. In the second case, the copy constructor is invoked. The default assignment operator and copy constructor supplied by the compiler perform a member-wise copy (aka shallow copy).
+
+For our `Cluster` class that would mean that the two `Cluster` objects would point to the one and the same cloud dynamic array in memory. Dangerous and unintended! We want each to have its own, so we need to perform the extra operation ourselves. We need to perform a deep copy, where we allocate a new array for the second object and fill it up like the array of the first object.
+
+This means that we have to overload the default copy constructor and assignment operator.
+
+Finally, since we are doing dynamic allocation of memory when we create `Cluster` objects, we need to cleanup ourselves. This means that we also have to overload the default destructor.
+
+Here is an updated version of our Class definition:
+
+```c++
+class Cluster {
+    Point *cloud; // dynamic array of Point objects
+    int size; // need to know how many points there are
+
+    // other private members ...
+
+public:
+    Cluster(); // default constructor
+    Cluster(const Cluster &);
+    Cluster &operator=(const Cluster rightSide);
+    ~Cluster();
+    
+    void addPoint(const Point &);
+    void removePoint(const Point &);
+
+    // other public methods ...
+};
+```
