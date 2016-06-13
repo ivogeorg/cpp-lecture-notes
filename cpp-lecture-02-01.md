@@ -1,6 +1,6 @@
 ## Overview
 
-Module 2 consists of 3 weeks and 6 lectures, from Tue, Sep 1, to Thur, Sep 17. It plunges into class design and introduces dynamic allocation on the heap and working with pointers. It's major emphasis is operator overloading as an important component of class design, especially the interesting design issues that come up in the presence of dynamically allocated class members.
+Module 2 consists of 3 weeks and 6 lectures. It plunges into class design and introduces dynamic allocation on the heap and working with pointers. It's major emphasis is operator overloading as an important component of class design, especially the interesting design issues that come up in the presence of dynamically allocated class members.
 
 ### Using const
 
