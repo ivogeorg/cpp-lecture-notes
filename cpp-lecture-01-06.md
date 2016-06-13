@@ -99,3 +99,48 @@ Pointers can be assigned in three ways:
 
 Dereferencing a pointer means accessing the dynamically allocated object it points to. Pointers are dereferenced with the __*__ operator.
 
+```c++
+#include "Point.h"
+
+int main() {
+    // 1. Examples of pointer assignment:
+    
+    Point p1, *pt = new Point(5, 6);
+    // p1 is a Point on the stack
+    // pt points to a Point on the heap
+
+    Point *px = pt, *py = &p1;
+    // px points to what pt points to
+    // py points to p1, which is on the stack
+    
+    // 2. Examples of dereferencing
+    
+    pt->setY(6.5); // is equivalent to
+    (*pt).setY(6.5); 
+    // this is a dereference, followed by the dot operator
+    // the parenteses are needed because . has higher
+    // precedence than * (book pp.925-926)
+    
+    *py = *pt; // now we are assigning one Point to another
+    // Here, *py is p1 and *pt is the Point pt points to
+    // the result is that p1 becomes (5.0, 6.0)
+    
+    py = new Point[100]; // dynamic array
+    for (int i=0; i<100; i++) {
+        py[i].setY(i);
+        (*(py + i)).setX(i+2);
+        // remember that an array variable is a pointer
+        // to the first element (element 0) of an array
+        // so py[i] is equivalent to *(py + i), and thus
+        // the [i] operator dereferences the i-th
+        // element (counting from zero, of course)
+    }
+    
+    return 0:
+}
+```
+The last example of dereferencing is also an example of pointer arithmetic. Pointer arithmetic is a leftover feature from the time in the evolution of the C/C++ languages when pointers were simply integers. For backward compatibility, modern C++ cannot forbid pointer arithmetic. Essentially, it is a technique of calculating addresses that relies on explicit arithmetic operations on pointers. In this case, this is the _*(pointer + integer)_ statement, which accesses the integer-th element of the pointer array. This is equivalent to the much cleaner expression pointer[integer]. You should prefer the latter over the former, but it's good to understand this aspect of pointers.
+
+Note that, since in C++ pointers have types (e.g. _pointer-to-int_, _pointer-to-Point_, etc.), pointer arithmetic works with the correct **step** in the array. This means that _*(pointer-to-int + 5)– will jump over _5 * sizeof(int)_ memory positions to find the correct element, while _*(pointer-to-Point + 5)_ will jump over _5 * sizeof(Point)_ memory positions (which is at least 4 times farther for a _Point_ with _double x_ and _y_). Once again we see how types help with the correct interpretation of memory locations, which leads to correct operation with this memory.
+
+
