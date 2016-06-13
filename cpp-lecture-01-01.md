@@ -125,5 +125,29 @@ Version control.
 
 Git is a version control system (VCS). It stores the codebase for a project along with a record of every change made to the code as the project progresses. Git was originally written to support the distributed open-source development of the Linux Kernel. Other popular VCSs are CVS, Subversion (SVN), Visual SourceSafe, Perforce, Mercurial (hg).
 
+![git_workflow](https://cloud.githubusercontent.com/assets/6043344/15994627/dc47cc06-30be-11e6-8376-bc3d2b558439.png)
+
+Git supports many development scenarios, most of which we will not encounter in this course:
+
+![development-with-git](https://cloud.githubusercontent.com/assets/6043344/15994643/0a65f7b6-30bf-11e6-9bdf-5bc7724576e2.png)
+
+Github is a cloud storage and team collaboration service, which supports Git.
+
+![github-pa1-repo](https://cloud.githubusercontent.com/assets/6043344/15994648/28fbc282-30bf-11e6-8674-04eda0dcabd1.png)
+
+### Software engineering (2)
+
+Version control with Git and Github for our course.
+
+**//TODO**
+
+### Software engineering (3)
+
+Test-driven development (TDD).
+
+**//TODO**
+
+
+
 
 
