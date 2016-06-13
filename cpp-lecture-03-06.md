@@ -330,28 +330,28 @@ Is ~T() noexcept? true
 
 The following is a selection from the [C++ Reference on exception usage and exception safety guarantees](http://en.cppreference.com/w/cpp/language/exceptions). I can't summarize it better than it is done there. (The links are from the reference and will likely lead you there.)
 
-   **Error handling**
-
-   Throwing an exception is used to signal errors from functions, where "errors" are typically limited to only the following:
-
-   1. Failures to meet the postconditions, such as failing to produce a valid return value object
-   2. Failures to meet the preconditions of another function that must be called
-   3. (for non-private member functions) Failures to (re)establish a class invariant
-
-   In particular, this implies that the failures of constructors (see also RAII) and most operators should be reported by throwing exceptions.
-
-   In addition, so-called wide contract functions use exceptions to indicate unacceptable inputs, for example,`std::string::at` (Links to an external site.) has no preconditions, but throws an exception to indicate index out of range.
-
-   **Exception safety**
-
-   After the error condition is reported by a function, additional guarantees may be provided with regards to the state of the program. The following four levels of exception guarantee are generally recognized, which are _strict supersets_ of each other:
-
-     1. Nothrow (or nofail) exception guarantee -- the function never throws exceptions. Nothrow (errors are reported by other means or concealed) is expected of destructors (Links to an external site.) and other functions that may be called during stack unwinding. The destructors (Links to an external site.) are noexcept (Links to an external site.) by default. (since C++11) Nofail (the function always succeeds) is expected of swaps, move constructors (Links to an external site.), and other functions used by those that provide strong exception guarantee.
-     2. Strong exception guarantee -- If the function throws an exception, the state of the program is rolled back to the state just before the function call. (for example, std::vector::push_back (Links to an external site.))
-     3. Basic exception guarantee -- If the function throws an exception, the program is in a valid state. It may require cleanup, but all invariants are intact.
-     4. No exception guarantee -- If the function throws an exception, the program may not be in a valid state: resource leaks, memory corruption, or other invariant-destroying errors may have occurred.
-
-   Generic components may, in addition, offer exception-neutral guarantee: if an exception is thrown from a template parameter (e.g. from the Compare function object of `std::sort` or from the constructor of `T` in `std::make_shared`), it is propagated, unchanged, to the caller.
+> **Error handling**
+>
+> Throwing an exception is used to signal errors from functions, where "errors" are typically limited to only the following:
+>
+>   1. Failures to meet the postconditions, such as failing to produce a valid return value object
+>   2. Failures to meet the preconditions of another function that must be called
+>   3. (for non-private member functions) Failures to (re)establish a class invariant
+>
+> In particular, this implies that the failures of constructors (see also RAII) and most operators should be reported by throwing exceptions.
+>
+> In addition, so-called wide contract functions use exceptions to indicate unacceptable inputs, for example,`std::string::at` (Links to an external site.) has no preconditions, but throws an exception to indicate index out of range.
+>
+> **Exception safety**
+>
+> After the error condition is reported by a function, additional guarantees may be provided with regards to the state of the program. The following four levels of exception guarantee are generally recognized, which are _strict supersets_ of each other:
+>
+>   1. Nothrow (or nofail) exception guarantee -- the function never throws exceptions. Nothrow (errors are reported by other means or concealed) is expected of destructors and other functions that may be called during stack unwinding. The destructors are `noexcept` by default. (since C++11) Nofail (the function always succeeds) is expected of swaps, move constructors, and other functions used by those that provide strong exception guarantee.
+>   2. Strong exception guarantee -- If the function throws an exception, the state of the program is rolled back to the state just before the function call. (for example, `std::vector::push_back`)
+>   3. Basic exception guarantee -- If the function throws an exception, the program is in a valid state. It may require cleanup, but all invariants are intact.
+>   4. No exception guarantee -- If the function throws an exception, the program may not be in a valid state: resource leaks, memory corruption, or other invariant-destroying errors may have occurred.
+>
+> Generic components may, in addition, offer exception-neutral guarantee: if an exception is thrown from a template parameter (e.g. from the Compare function object of `std::sort` or from the constructor of `T` in `std::make_shared`), it is propagated, unchanged, to the caller.
 
 ### Exceptions (12)
 
