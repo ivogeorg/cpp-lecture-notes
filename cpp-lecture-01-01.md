@@ -101,7 +101,7 @@ Real numbers.
 
 Reals are approximated. Their precision is no only finite, but can also vary between numbers. Reals are represented by floating point data types. There are several representations of real numbers: fixed-point, floating-point, binary-coded-decimal, etc. They differ in format, precision, and speed of operations. We focus on floating-point numbers.
 
-Their format (specifically the IEEE 754 single-precision) looks as follows:
+Their format (specifically the [IEEE 754 single-precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format#IEEE_754_single-precision_binary_floating-point_format:_binary32)) looks as follows:
 
 ![1180px-float_example svg](https://cloud.githubusercontent.com/assets/6043344/15994598/4287f2da-30be-11e6-86e7-6287c40260d5.png)
 
