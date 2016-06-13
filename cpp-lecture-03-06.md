@@ -332,15 +332,15 @@ The following is a selection from the [C++ Reference on exception usage and exce
 
    **Error handling**
 
-   Throwing an exception is used to signal errors from functions, where "errors" are typically limited to only the following[1] (Links to an external site.)[2] (Links to an external site.):
+   Throwing an exception is used to signal errors from functions, where "errors" are typically limited to only the following:
 
-      1. Failures to meet the postconditions, such as failing to produce a valid return value object
-      2. Failures to meet the preconditions of another function that must be called
-      3. (for non-private member functions) Failures to (re)establish a class invariant
+   1. Failures to meet the postconditions, such as failing to produce a valid return value object
+   2. Failures to meet the preconditions of another function that must be called
+   3. (for non-private member functions) Failures to (re)establish a class invariant
 
-   In particular, this implies that the failures of constructors (see also RAII (Links to an external site.)) and most operators should be reported by throwing exceptions.
+   In particular, this implies that the failures of constructors (see also RAII) and most operators should be reported by throwing exceptions.
 
-   In addition, so-called wide contract functions use exceptions to indicate unacceptable inputs, for example,std::string::at (Links to an external site.) has no preconditions, but throws an exception to indicate index out of range.
+   In addition, so-called wide contract functions use exceptions to indicate unacceptable inputs, for example,`std::string::at` (Links to an external site.) has no preconditions, but throws an exception to indicate index out of range.
 
    **Exception safety**
 
