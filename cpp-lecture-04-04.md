@@ -30,3 +30,10 @@ We want our key to contain two points and use their unique id-s to calculate the
 
 An easy and frequently used function is the _Cantor function_ 
 
+![cantor-function](https://cloud.githubusercontent.com/assets/6043344/16058061/8115cd0a-3231-11e6-909f-6d85ad98c6d7.png)
+
+It maps any two positive integers to a unique positive integer.
+
+Notice that to avoid storing every distance twice, our function has to meet the transitivity condition
+
+
